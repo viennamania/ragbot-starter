@@ -15,6 +15,8 @@ export async function POST(req: Request) {
     const latestMessage = messages[messages?.length - 1]?.content;
 
     let docContext = '';
+
+    
     if (useRag) {
       const {data} = await openai.embeddings.create({input: latestMessage, model: 'text-embedding-ada-002'});
 
@@ -35,6 +37,8 @@ export async function POST(req: Request) {
         END CONTEXT
       `
     }
+
+    /*
     const ragPrompt = [
       {
         role: 'system',
@@ -44,6 +48,12 @@ export async function POST(req: Request) {
       `,
       },
     ]
+    */
+
+
+
+
+
 
 
     const response = await openai.chat.completions.create(

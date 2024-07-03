@@ -15,12 +15,15 @@ interface Props {
 
 const Configure = ({ isOpen, onClose, useRag, llm, similarityMetric, setConfiguration }: Props) => {
   const [rag, setRag] = useState(useRag);
+  
   const [selectedLlm, setSelectedLlm] = useState(llm);
+
   const [selectedSimilarityMetric, setSelectedSimilarityMetric] = useState<SimilarityMetric>(similarityMetric);
   
   if (!isOpen) return null;
 
   const llmOptions = [
+    { label: 'GPT 4o', value: 'gpt-4o' },
     { label: 'GPT 3.5 Turbo', value: 'gpt-3.5-turbo' },
     { label: 'GPT 4', value: 'gpt-4' }
   ];
