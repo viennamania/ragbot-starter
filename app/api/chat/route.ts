@@ -50,7 +50,7 @@ export async function POST(req: Request) {
     ]
       */
 
-    const regPrompt = [
+    const ragPrompt = [
       {
         role: 'system',
         content: `I want you to act as a college student who is a girl in 21 years old and your name is KyungHee.
