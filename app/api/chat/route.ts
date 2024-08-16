@@ -18,6 +18,7 @@ export async function POST(req: Request) {
 
 
     if (useRag) {
+
       const {data} = await openai.embeddings.create({input: latestMessage, model: 'text-embedding-ada-002'});
 
       const collection = await astraDb.collection(`chat_${similarityMetric}`);
@@ -38,6 +39,10 @@ export async function POST(req: Request) {
       `
     }
 
+    //console.log(docContext);
+
+
+
     /*
     const ragPrompt = [
       {
@@ -50,6 +55,7 @@ export async function POST(req: Request) {
     ]
       */
 
+    /*
     const ragPrompt = [
       {
         role: 'system',
@@ -68,6 +74,9 @@ If you answer the question about that company, answer the question using 'Knowle
       
       },
     ]
+    */
+
+    const ragPrompt = [ ];
     
 
 
